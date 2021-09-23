@@ -59,13 +59,16 @@ public class ChecaDatos {
 		return miLinea;
 	}
 
-	public void escribirArchivo(String nombreRecurso, Cliente cliente, Habitacion hab) {
+	public void escribirArchivo(String nombreRecurso, Cliente cliente, Habitacion hab, boolean anexar) {
 
 		File miArchivo = new File(nombreRecurso);
 		
 		try {
-			PrintWriter pw = new PrintWriter(miArchivo);
+			PrintWriter pw = new PrintWriter(new FileWriter(miArchivo));
 		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
