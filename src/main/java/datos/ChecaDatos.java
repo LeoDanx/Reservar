@@ -66,10 +66,12 @@ public class ChecaDatos {
 
 		try {
 			PrintWriter pw = new PrintWriter(new FileWriter(miArchivo, anexar));
-			pw.print(cliente.getHabitacion().getNum() + "|" + cliente.getNombre() + "|" + cliente.getEdad() + "|"
+
+			pw.println(cliente.getHabitacion().getNum() + "|" + cliente.getNombre() + "|" + cliente.getEdad() + "|"
 					+ cliente.getSexo() + "|" + cliente.getDireccion() + "|" + cliente.getEmail() + "|"
-					+ cliente.getCelular() + "|" + cliente.getHabitacion().getTipoHabitacion().name() + "|" + noPersonas
-					+ "|" + cliente.getHabitacion().getTipoHabitacion().getPrecio() + "|"
+					+ cliente.getCelular() + "|" + cliente.getFechaIngreso() + "|" + cliente.getFechaSalida() + "|"
+					+ cliente.getHabitacion().getTipoHabitacion().name() + "|" + noPersonas + "|"
+					+ cliente.getHabitacion().getTipoHabitacion().getPrecio() + "|"
 					+ (cliente.getIfp() instanceof PagoConTarjeta ? "Tarjeta" : "Efectivo") + "|"
 					+ (cliente.getHabitacion().getTipoHabitacion().getPrecio() * noPersonas));
 

@@ -1,3 +1,4 @@
-NoHabitacion|NombreCliente|Edad|Sexo|Direccion|Email|Celular|TipoHabitacion|NoPersonas|MontoPorPersona|TipoPago|Total
-1|Camilo Cuellar|25|Masculino|C. Jacintos lt.9 mz.14 Col. Nuevo Laredo|camilocu@gmail.com|5512467988|Queen|3|1200|Efectivo|3600
-2|María Solis|33|Femenino|C. Rosales no.24 Col. Los Alamos|marisol@gmail.com|5578134466|Individual|1|500|Tarjeta|500
+NoHabitacion|NombreCliente|Edad|Sexo|Direccion|Email|Celular|FechaIngreso|FechaSalida|TipoHabitacion|NoPersonas|MontoPorPersona|TipoPago|Total
+1|Camilo Cuellar|25|Masculino|C. Jacintos lt.9 mz.14 Col. Nuevo Laredo|camilocu@gmail.com|5512467988|23-09-2021|24-09-2021|Queen|3|1200|Efectivo|3600
+2|María Solis|33|Femenino|C. Rosales no.24 Col. Los Alamos|marisol@gmail.com|5578134466|23-09-2021|24-09-2021|Individual|1|500|Tarjeta|500
+3|Rogelio Cruz|23|Masculino|C. Roma lt 13 mz 24 col. Miguel Ramos|rogcruz@gmail.com|5534567721|25-09-2021|26-09-2021|DOBLE|2|800.0|Tarjeta|1600.0
