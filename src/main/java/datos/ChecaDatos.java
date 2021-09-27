@@ -65,21 +65,21 @@ public class ChecaDatos {
 		File miArchivo = new File(nombreRecurso);
 
 		try {
-			PrintWriter pw = new PrintWriter(new FileWriter(miArchivo));
+			PrintWriter pw = new PrintWriter(new FileWriter(miArchivo, anexar));
 			pw.print(cliente.getHabitacion().getNum() + "|" + cliente.getNombre() + "|" + cliente.getEdad() + "|"
 					+ cliente.getSexo() + "|" + cliente.getDireccion() + "|" + cliente.getEmail() + "|"
 					+ cliente.getCelular() + "|" + cliente.getHabitacion().getTipoHabitacion().name() + "|" + noPersonas
 					+ "|" + cliente.getHabitacion().getTipoHabitacion().getPrecio() + "|"
 					+ (cliente.getIfp() instanceof PagoConTarjeta ? "Tarjeta" : "Efectivo") + "|"
 					+ (cliente.getHabitacion().getTipoHabitacion().getPrecio() * noPersonas));
-			
+
 			System.out.println("Se ha escrito en archivo correctamente");
 			pw.close();
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			System.out.println("Error al escribir archivo.");
 			e.printStackTrace();
-			
+
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			System.out.println("Error al escribir archivo.");

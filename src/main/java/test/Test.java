@@ -1,13 +1,13 @@
 package test;
 
-import negocio.ListarClientes;
+import negocio.GestionClientes;
 
 public class Test {
 	
 	public static void main(String [] args) {
 		
 		
-		ListarClientes lc = new ListarClientes();
+		GestionClientes lc = new GestionClientes();
 		lc.Listar();
 		
 	}
