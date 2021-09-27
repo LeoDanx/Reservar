@@ -28,7 +28,28 @@ public class GestionClientes {
 
 		ChecaDatos cd = new ChecaDatos();
 		cd.escribirArchivo(recurso, cliente, noP, true);
-		
+
+	}
+
+	public void buscarCliente(String email) {
+
+		ChecaDatos cd = new ChecaDatos();
+		List<String> resultado = new ArrayList<String>();
+		resultado = cd.buscar(recurso, email);
+
+		if (resultado.isEmpty()) {
+
+			System.out.println("No se encontraron coincidencias");
+			
+		}else {
+			
+			System.out.println("Se han encontrado coincidencias.");
+			
+			for(String s: resultado) {
+				
+				System.out.println(s);
+			}
+		}
 	}
 
 }

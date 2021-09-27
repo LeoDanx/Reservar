@@ -90,4 +90,42 @@ public class ChecaDatos {
 
 	}
 
+	public List<String> buscar(String recurso, String email) {
+
+		File archivo = new File(recurso);
+		boolean ver = false;
+		List<String> resultado = new ArrayList<String>();
+
+		BufferedReader entrada;
+		try {
+			entrada = new BufferedReader(new FileReader(archivo));
+			String linea = null;
+			linea = entrada.readLine();
+			String elementos[] = null;
+
+			while (linea != null) {
+
+				elementos = linea.split("\\|");
+
+				if (elementos[5].equalsIgnoreCase(email)) {
+
+					resultado.add(linea);
+				}
+
+				linea = entrada.readLine();
+			}
+
+			entrada.close();
+
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		return resultado;
+	}
+
 }

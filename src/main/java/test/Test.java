@@ -20,12 +20,12 @@ public class Test {
 
 		do {
 
-			System.out.println("Que desea hacer?\n1)Listar clientes\n2)Registrar Clientes \n3)Salir");
+			System.out.println("Que desea hacer?\n1)Listar clientes\n2)Registrar Clientes \n3)Buscar\n4)Salir");
 			op = Integer.parseInt(sc.nextLine());
 
 			menu(lc, op);
 
-		} while (op != 3);
+		} while (op != 4);
 
 		sc.close();
 	}
@@ -128,6 +128,14 @@ public class Test {
 			break;
 
 		case 3:
+			
+			System.out.println("Ingrese el correo del cliente a buscar");
+			String correo = sc.nextLine();
+			lc.buscarCliente(correo);
+			
+			break;
+
+		case 4:
 			System.out.println("Has salido del programa.");
 			break;
 
