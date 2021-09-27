@@ -24,22 +24,11 @@ public class GestionClientes {
 		}
 	}
 
-	public void registrar(Cliente cliente) {
+	public void registrar(Cliente cliente, int noP) {
 
 		ChecaDatos cd = new ChecaDatos();
-		Scanner sc = new Scanner(System.in);
-		System.out.println("Ingrese el numero de personas registradas: ");
-		int noP = Integer.parseInt(sc.nextLine());
-
-		if (noP <= cliente.getHabitacion().getTipoHabitacion().getMaxPersonas()) {
-
-			cd.escribirArchivo(recurso, cliente, noP, true);
-
-		} else {
-			System.out.println("Se ha excedido el numero de personas por habitación.");
-		}
-
-		sc.close();
+		cd.escribirArchivo(recurso, cliente, noP, true);
+		
 	}
 
 }
