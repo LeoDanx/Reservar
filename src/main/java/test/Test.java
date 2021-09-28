@@ -53,11 +53,12 @@ public class Test {
 			String email = sc.nextLine();
 			System.out.println("Ingrese su celular ");
 			String celular = sc.nextLine();
-			System.out.println("Ingrese numero de habitacion ");
-			int num = Integer.parseInt(sc.nextLine());
 
 			System.out.println("Elija tipo de habitacion: \n1)Individual\n2)Doble\n3)Queen\n4)King\n5)Suite");
 			int tipo = Integer.parseInt(sc.nextLine());
+			
+			System.out.println("Ingrese numero de habitacion ");
+			int num = Integer.parseInt(sc.nextLine());
 
 			TipoHabitacion t = null;
 

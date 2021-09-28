@@ -1,8 +1,2 @@
 NoHabitacion|NombreCliente|Edad|Sexo|Direccion|Email|Celular|FechaIngreso|FechaSalida|TipoHabitacion|NoPersonas|MontoPorPersona|TipoPago|Total
-1|Camilo Cuellar|25|Masculino|C. Jacintos lt.9 mz.14 Col. Nuevo Laredo|camilocu@gmail.com|5512467988|23-09-2021|24-09-2021|Queen|3|1200|Efectivo|3600
-2|María Solis|33|Femenino|C. Rosales no.24 Col. Los Alamos|marisol@gmail.com|5578134466|23-09-2021|24-09-2021|Individual|1|500|Tarjeta|500
-3|Rogelio Cruz|23|Masculino|C. Roma lt 13 mz 24 col. Miguel Ramos|rogcruz@gmail.com|5534567721|25-09-2021|26-09-2021|DOBLE|2|800.0|Tarjeta|1600.0
-4|Rogelio Cruz|23|Masculino|C. Roma lt 13 mz 24 col. Miguel Ramos|rogcruz@gmail.com|5534567721|25-09-2021|26-09-2021|DOBLE|2|800.0|Tarjeta|1600.0
-5|Amalia Montero|55|Femenino|C. Romero no.149 col. Calleja|amalimon@hotmail.com|5553782309|27-09-2021|28-09-2021|KING|4|1500.0|Efectivo|6000.0
-6|Mario Alonso|33|Masculino|C. Viveros no.98 col. Roma|viveMario@gmail.com|5546443520|27-09-2021|28-09-2021|DOBLE|2|800.0|Efectivo|1600.0
-7|Erika Hernandez|27|Femenino|C. Morelos no.67 col. Peralvillo|erikaHer@gmail.com|5557433121|28-09-2021|29-09-2021|SUITE|10|2500.0|Tarjeta|25000.0
+
