@@ -1,6 +1,7 @@
 package negocio;
 
 import datos.ChecaHabitaciones;
+import datos.modelos.TipoHabitacion;
 
 public class GestionHabitaciones {
 
@@ -14,19 +15,28 @@ public class GestionHabitaciones {
 		return ver;
 
 	}
-	
-	public void ocupar(int num){
-		
-		ChecaHabitaciones ch = new ChecaHabitaciones(); 
-		ch.ocupar(recurso, num);
-		
-	}
-	
-	public void desocupar(int num) {
-		
+
+	// Se asegura que el tipo de habitacion sea el correspondiente al designado
+	public boolean comprobarHabitacion(TipoHabitacion tipo, int num) {
+
 		ChecaHabitaciones ch = new ChecaHabitaciones();
-		ch.desocupar(recurso, GestionClientes.recurso,num);
-		
+		boolean ver = ch.comprobarTipo(tipo, num);
+
+		return ver;
+	}
+
+	public void ocupar(int num) {
+
+		ChecaHabitaciones ch = new ChecaHabitaciones();
+		ch.ocupar(recurso, num);
+
+	}
+
+	public void desocupar(int num) {
+
+		ChecaHabitaciones ch = new ChecaHabitaciones();
+		ch.desocupar(recurso, GestionClientes.recurso, num);
+
 	}
 
 }

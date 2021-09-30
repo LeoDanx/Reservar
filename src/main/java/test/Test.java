@@ -13,9 +13,17 @@ public class Test {
 	static Scanner sc = new Scanner(System.in);
 
 	public static void main(String[] args) {
-		
-		//Considerar solo dejar el archico base.txt y hacer las operaciones en base a ese archivo
-		//Prevenir la introduccion de clientes repetidos
+
+		// Considerar solo dejar el archico base.txt y hacer las operaciones en base a
+		// ese archivo
+		// considerar clase lineas para relectura de archivo base al desocupar
+		// habitaciones
+		// Considerar tener un respaldo que se actualice auto, cada día.
+		// Falta listar habitaciones disponibles y asignarlas de acuerdo a tipo de
+		// habitación.
+		// Tambien faltan validaciones y control de excepciones
+		// Expedición de logs para control de incidencias.
+		// Comentarios en codigo y presentacion.
 
 		GestionClientes lc = new GestionClientes();
 		GestionHabitaciones gh = new GestionHabitaciones();
@@ -25,7 +33,8 @@ public class Test {
 
 		do {
 
-			System.out.println("Que desea hacer?\n1)Listar clientes\n2)Registrar Clientes \n3)Buscar\n4)Desocupar\n5)Salir");
+			System.out.println(
+					"Que desea hacer?\n1)Listar clientes\n2)Registrar Clientes \n3)Buscar\n4)Desocupar\n5)Salir");
 			op = Integer.parseInt(sc.nextLine());
 
 			menu(lc, gh, op);
@@ -62,29 +71,6 @@ public class Test {
 			System.out.println("Elija tipo de habitacion: \n1)Individual\n2)Doble\n3)Queen\n4)King\n5)Suite");
 			int tipo = Integer.parseInt(sc.nextLine());
 
-			boolean check = false;
-			int num = 0;
-
-			do {
-
-				System.out.println("Ingrese numero de habitacion ");
-				num = Integer.parseInt(sc.nextLine());
-				check = gh.disponibilidad(num);
-
-				// Comprobamos que la habitacion este disponible
-				// true lo encontro, false no lo encontro
-				if (check) {
-
-					System.out.println("Habitacion ocupada. Elija otra.");
-
-				} else {
-
-					gh.ocupar(num);
-					check = false;
-				}
-
-			} while (check);
-
 			TipoHabitacion t = null;
 
 			switch (tipo) {
@@ -107,6 +93,35 @@ public class Test {
 				break;
 
 			}
+
+			boolean check = false, check2 = false;
+			int num = 0;
+
+			do {
+
+				System.out.println("Ingrese numero de habitacion ");
+				num = Integer.parseInt(sc.nextLine());
+				check = gh.disponibilidad(num);
+				check2 = gh.comprobarHabitacion(t, num);
+
+				// Comprobamos que la habitacion este disponible
+				// true lo encontro, false no lo encontro
+				if (check) {
+
+					System.out.println("Habitacion ocupada. Elija otra.");
+
+				} else if (!check2) {
+
+					System.out.println("Esta habitacion no esta designada para el tipo " + t);
+
+				} else {
+
+					gh.ocupar(num);
+					check = false;
+					check2 = true;
+				}
+
+			} while (check || !check2);
 
 			int noP = 0;
 			boolean ver = false;

@@ -1,3 +1,2 @@
 NoHabitacion|NombreCliente|Edad|Sexo|Direccion|Email|Celular|FechaIngreso|FechaSalida|TipoHabitacion|NoPersonas|MontoPorPersona|TipoPago|Total
-1|Carmen Morales|34|Femenino|C. Lerdo de Tejada no 33 col. Malacates|carMor@gmail.com|5554892324|29-09-2021|30-09-2021|DOBLE|2|800.0|Efectivo|1600.0
-2|Mario Molina|49|Masculino|C. Rosario Robles no.20 col. lomas|masMolina@gmail.com|555425348911|29-09-2021|30-09-2021|QUEEN|3|1200.0|Tarjeta|3600.0
+8|Carlos Contreras|23|Masculino|C. Robles no. 34 col. Cañoneros|carlosConti@gmail.com|55543737289|30-09-2021|1-10-2021|DOBLE|1|800.0|Tarjeta|800.0

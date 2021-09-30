@@ -1,14 +1,9 @@
 package datos;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.PrintWriter;
-import java.util.ArrayList;
-import java.util.List;
+import java.io.*;
+import java.util.*;
+
+import datos.modelos.TipoHabitacion;
 
 public class ChecaHabitaciones {
 
@@ -110,20 +105,19 @@ public class ChecaHabitaciones {
 					}
 				}
 
-				
 				pw.close();
-				
-				//Se tiene que borrar del archivo base.txt el cliente con dicha habitación
+
+				// Se tiene que borrar del archivo base.txt el cliente con dicha habitación
 				entrada2 = new BufferedReader(new FileReader(archivo2));
 				linea = entrada2.readLine();
 				List<String> clientes = new ArrayList<String>();
-				int indice=0;
+				int indice = 0;
 
 				while (linea != null) {
 					indice++;
 					elementos = linea.split("\\|");
 
-					if ( indice>1 && num == Integer.parseInt(elementos[0])) {
+					if (indice > 1 && num == Integer.parseInt(elementos[0])) {
 
 						linea = "";
 					}
@@ -134,21 +128,20 @@ public class ChecaHabitaciones {
 
 					// Considerar una funcion para prevenir saltos en blanco en archivo
 				}
-				
+
 				entrada2.close();
-				
+
 				PrintWriter pw2 = new PrintWriter(new FileWriter(archivo2, false));
 
-				for (String s: clientes) {
+				for (String s : clientes) {
 
 					if (!s.isBlank()) {
 						pw2.println(s);
 					}
 				}
 
-				
 				pw2.close();
-				
+
 				System.out.println("Se ha desocupado la habitacion con el num " + num);
 
 			} else {
@@ -164,6 +157,77 @@ public class ChecaHabitaciones {
 			e.printStackTrace();
 		}
 
+	}
+
+	public boolean comprobarTipo(TipoHabitacion t, int num) {
+
+		boolean verif = false;
+
+		switch (t){
+
+		case INDIVIDUAL:
+
+			for (int i = 1; i <= 5; i++) {
+
+				if (num == i) {
+
+					verif = true;// ok
+				}
+			}
+
+			break;
+
+		case DOBLE:
+			for (int i = 6; i <= 10; i++) {
+
+				if (num == i) {
+
+					verif = true;// ok
+				}
+			}
+
+			break;
+
+		case QUEEN:
+			for (int i = 11; i <= 15; i++) {
+
+				if (num == i) {
+
+					verif = true;// ok
+				}
+			}
+
+			break;
+
+		case KING:
+			for (int i = 16; i <= 20; i++) {
+
+				if (num == i) {
+
+					verif = true;// ok
+				}
+			}
+
+			break;
+
+		case SUITE:
+			for (int i = 17; i <= 25; i++) {
+
+				if (num == i) {
+
+					verif = true;// ok
+				}
+			}
+
+			break;
+
+		default:
+			System.out.println("Ingrese un tipo válido.");
+			break;
+
+		}
+
+		return verif;
 	}
 
 }
