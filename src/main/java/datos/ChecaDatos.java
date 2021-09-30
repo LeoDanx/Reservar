@@ -111,7 +111,8 @@ public class ChecaDatos {
 
 					resultado.add(linea);
 				}
-
+				
+				
 				linea = entrada.readLine();
 			}
 

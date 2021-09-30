@@ -6,31 +6,36 @@ import datos.modelos.Cliente;
 import datos.modelos.Habitacion;
 import datos.modelos.TipoHabitacion;
 import negocio.GestionClientes;
+import negocio.GestionHabitaciones;
 
 public class Test {
 
 	static Scanner sc = new Scanner(System.in);
 
 	public static void main(String[] args) {
+		
+		//Considerar solo dejar el archico base.txt y hacer las operaciones en base a ese archivo
+		//Prevenir la introduccion de clientes repetidos
 
 		GestionClientes lc = new GestionClientes();
+		GestionHabitaciones gh = new GestionHabitaciones();
 		int op = 0;
 
 		System.out.println("------------Bienvenido------------------");
 
 		do {
 
-			System.out.println("Que desea hacer?\n1)Listar clientes\n2)Registrar Clientes \n3)Buscar\n4)Salir");
+			System.out.println("Que desea hacer?\n1)Listar clientes\n2)Registrar Clientes \n3)Buscar\n4)Desocupar\n5)Salir");
 			op = Integer.parseInt(sc.nextLine());
 
-			menu(lc, op);
+			menu(lc, gh, op);
 
-		} while (op != 4);
+		} while (op != 5);
 
 		sc.close();
 	}
 
-	public static void menu(GestionClientes lc, int op) {
+	public static void menu(GestionClientes lc, GestionHabitaciones gh, int op) {
 
 		switch (op) {
 
@@ -56,9 +61,29 @@ public class Test {
 
 			System.out.println("Elija tipo de habitacion: \n1)Individual\n2)Doble\n3)Queen\n4)King\n5)Suite");
 			int tipo = Integer.parseInt(sc.nextLine());
-			
-			System.out.println("Ingrese numero de habitacion ");
-			int num = Integer.parseInt(sc.nextLine());
+
+			boolean check = false;
+			int num = 0;
+
+			do {
+
+				System.out.println("Ingrese numero de habitacion ");
+				num = Integer.parseInt(sc.nextLine());
+				check = gh.disponibilidad(num);
+
+				// Comprobamos que la habitacion este disponible
+				// true lo encontro, false no lo encontro
+				if (check) {
+
+					System.out.println("Habitacion ocupada. Elija otra.");
+
+				} else {
+
+					gh.ocupar(num);
+					check = false;
+				}
+
+			} while (check);
 
 			TipoHabitacion t = null;
 
@@ -88,7 +113,8 @@ public class Test {
 
 			do {
 
-				System.out.println("Teclee el numero de personas a ingresar.");
+				System.out.println(
+						"Teclee el numero de personas a ingresar.(Max " + t.getMaxPersonas() + " persona(s)).");
 				noP = Integer.parseInt(sc.nextLine());
 
 				if (noP > t.getMaxPersonas()) {
@@ -129,14 +155,19 @@ public class Test {
 			break;
 
 		case 3:
-			
+
 			System.out.println("Ingrese el correo del cliente a buscar");
 			String correo = sc.nextLine();
 			lc.buscarCliente(correo);
-			
+
 			break;
 
 		case 4:
+			System.out.println("Escriba el numero de habitacion a desocupar");
+			int num2 = Integer.parseInt(sc.nextLine());
+			gh.desocupar(num2);
+			break;
+		case 5:
 			System.out.println("Has salido del programa.");
 			break;
 

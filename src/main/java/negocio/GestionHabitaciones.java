@@ -21,5 +21,12 @@ public class GestionHabitaciones {
 		ch.ocupar(recurso, num);
 		
 	}
+	
+	public void desocupar(int num) {
+		
+		ChecaHabitaciones ch = new ChecaHabitaciones();
+		ch.desocupar(recurso, GestionClientes.recurso,num);
+		
+	}
 
 }
