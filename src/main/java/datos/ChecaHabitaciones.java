@@ -9,10 +9,9 @@ public class ChecaHabitaciones {
 
 	public boolean disponible(String recurso, int num) {
 
-		// Individual 1-5//Doble 6-10//Queen 11-15
-		// King 16-20//Suite 21-25
 		File archivo = new File(recurso);
 		boolean ver = false;
+		int i = 0;
 
 		try {
 			BufferedReader entrada = new BufferedReader(new FileReader(archivo));
@@ -20,14 +19,11 @@ public class ChecaHabitaciones {
 			String elementos[] = null;
 
 			while (linea != null) {
-
+				i++;
 				elementos = linea.split("\\|");
 
-				for (String s : elementos) {
-
-					if (num == Integer.parseInt(s)) {
-						ver = true;
-					}
+				if (i > 1 && num == Integer.parseInt(elementos[0])) {
+					ver = true;// true es que no esta disponible
 				}
 
 				linea = entrada.readLine();
@@ -46,50 +42,35 @@ public class ChecaHabitaciones {
 		return ver;
 	}
 
-	public void ocupar(String recurso, int num) {
+	public void desocupar(String recurso, int num) {
 
 		File archivo = new File(recurso);
-
-		try {
-			PrintWriter pw = new PrintWriter(new FileWriter(recurso, true));
-			pw.print(num + "|");
-
-			System.out.println("La habitacion numero " + num + " ha sido ocupada.");
-			pw.close();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-
-	}
-
-	public void desocupar(String recurso, String recurso2, int num) {
-
-		File archivo = new File(recurso);
-		File archivo2 = new File(recurso2);
-		BufferedReader entrada, entrada2;
+		BufferedReader entrada;
 		boolean check = false;
 		String elementos[] = null;
 
 		try {
+			// Se tiene que borrar del archivo base.txt el cliente con dicha habitación
 			entrada = new BufferedReader(new FileReader(archivo));
-			String linea = null;
-			linea = entrada.readLine();
+			String linea = entrada.readLine();
+			List<String> clientes = new ArrayList<String>();
+			int indice = 0;
 
 			while (linea != null) {
-
+				indice++;
 				elementos = linea.split("\\|");
 
-				for (int i = 0; i < elementos.length; i++) {
+				if (indice > 1 && num == Integer.parseInt(elementos[0])) {
 
-					if (num == Integer.parseInt(elementos[i])) {
-
-						elementos[i] = "";
-						check = true;
-					}
+					linea = "";
+					check = true;
 				}
 
+				clientes.add(linea);
+
 				linea = entrada.readLine();
+
+				// Considerar una funcion para prevenir saltos en blanco en archivo
 			}
 
 			entrada.close();
@@ -98,55 +79,19 @@ public class ChecaHabitaciones {
 
 				PrintWriter pw = new PrintWriter(new FileWriter(archivo, false));
 
-				for (int i = 0; i < elementos.length; i++) {
+				for (String s : clientes) {
 
-					if (!elementos[i].isBlank()) {
-						pw.print(elementos[i] + "|");
+					if (!s.isBlank()) {
+						pw.println(s);
 					}
 				}
 
 				pw.close();
 
-				// Se tiene que borrar del archivo base.txt el cliente con dicha habitación
-				entrada2 = new BufferedReader(new FileReader(archivo2));
-				linea = entrada2.readLine();
-				List<String> clientes = new ArrayList<String>();
-				int indice = 0;
-
-				while (linea != null) {
-					indice++;
-					elementos = linea.split("\\|");
-
-					if (indice > 1 && num == Integer.parseInt(elementos[0])) {
-
-						linea = "";
-					}
-
-					clientes.add(linea);
-
-					linea = entrada2.readLine();
-
-					// Considerar una funcion para prevenir saltos en blanco en archivo
-				}
-
-				entrada2.close();
-
-				PrintWriter pw2 = new PrintWriter(new FileWriter(archivo2, false));
-
-				for (String s : clientes) {
-
-					if (!s.isBlank()) {
-						pw2.println(s);
-					}
-				}
-
-				pw2.close();
-
 				System.out.println("Se ha desocupado la habitacion con el num " + num);
 
 			} else {
-
-				System.out.println("La habitación no esta ocupada");
+				System.out.println("La habitacion no esta ocupada");
 			}
 
 		} catch (FileNotFoundException e) {
@@ -163,60 +108,45 @@ public class ChecaHabitaciones {
 
 		boolean verif = false;
 
-		switch (t){
+		switch (t) {
 
 		case INDIVIDUAL:
 
-			for (int i = 1; i <= 5; i++) {
+			if (num >= 1 && num <= 5) {
 
-				if (num == i) {
-
-					verif = true;// ok
-				}
+				verif = true;// ok
 			}
 
 			break;
 
 		case DOBLE:
-			for (int i = 6; i <= 10; i++) {
+			if (num >= 6 && num <= 10) {
 
-				if (num == i) {
-
-					verif = true;// ok
-				}
+				verif = true;// ok
 			}
 
 			break;
 
 		case QUEEN:
-			for (int i = 11; i <= 15; i++) {
+			if (num >= 11 && num <= 15) {
 
-				if (num == i) {
-
-					verif = true;// ok
-				}
+				verif = true;// ok
 			}
 
 			break;
 
 		case KING:
-			for (int i = 16; i <= 20; i++) {
+			if (num >= 16 && num <= 20) {
 
-				if (num == i) {
-
-					verif = true;// ok
-				}
+				verif = true;// ok
 			}
 
 			break;
 
 		case SUITE:
-			for (int i = 17; i <= 25; i++) {
+			if (num >= 21 && num <= 25) {
 
-				if (num == i) {
-
-					verif = true;// ok
-				}
+				verif = true;// ok
 			}
 
 			break;

@@ -5,12 +5,10 @@ import datos.modelos.TipoHabitacion;
 
 public class GestionHabitaciones {
 
-	static final String recurso = "C:\\Users\\XMX2503\\eclipse-workspace\\reservaciones\\src\\main\\resources\\habitacionesOcupadas.txt";
-
 	public boolean disponibilidad(int num) {
 
 		ChecaHabitaciones ch = new ChecaHabitaciones();
-		boolean ver = ch.disponible(recurso, num);
+		boolean ver = ch.disponible(GestionClientes.recurso, num);
 
 		return ver;
 
@@ -25,17 +23,10 @@ public class GestionHabitaciones {
 		return ver;
 	}
 
-	public void ocupar(int num) {
-
-		ChecaHabitaciones ch = new ChecaHabitaciones();
-		ch.ocupar(recurso, num);
-
-	}
-
 	public void desocupar(int num) {
 
 		ChecaHabitaciones ch = new ChecaHabitaciones();
-		ch.desocupar(recurso, GestionClientes.recurso, num);
+		ch.desocupar(GestionClientes.recurso, num);
 
 	}
 

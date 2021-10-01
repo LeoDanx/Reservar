@@ -1,2 +1,4 @@
 NoHabitacion|NombreCliente|Edad|Sexo|Direccion|Email|Celular|FechaIngreso|FechaSalida|TipoHabitacion|NoPersonas|MontoPorPersona|TipoPago|Total
-8|Carlos Contreras|23|Masculino|C. Robles no. 34 col. Cañoneros|carlosConti@gmail.com|55543737289|30-09-2021|1-10-2021|DOBLE|1|800.0|Tarjeta|800.0
+11|Mario Molina|34|Masculino|C. Rosario Robles no.22 col. Anzures|masMolina@gmail.com|5567341233|30-09-2021|1-10-2021|QUEEN|3|1200.0|Efectivo|3600.0
+17|Angel Herrera|37|MAsculino|C. jacarandas lt 8 mz 13 col Forestal|secahl02@gmail.com|5554737214|0-10-2021|1-10-2021|KING|5|1500.0|Efectivo|7500.0
+24|Jocelyn Lomeli|24|Femenino|C. loreto no. 45 col. Romero|jocLomeli@gmail.com|5563012378|01-10-2021|02-10-2021|SUITE|10|2500.0|Efectivo|25000.0

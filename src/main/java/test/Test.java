@@ -13,14 +13,10 @@ public class Test {
 	static Scanner sc = new Scanner(System.in);
 
 	public static void main(String[] args) {
-
-		// Considerar solo dejar el archico base.txt y hacer las operaciones en base a
-		// ese archivo
+		
 		// considerar clase lineas para relectura de archivo base al desocupar
 		// habitaciones
 		// Considerar tener un respaldo que se actualice auto, cada día.
-		// Falta listar habitaciones disponibles y asignarlas de acuerdo a tipo de
-		// habitación.
 		// Tambien faltan validaciones y control de excepciones
 		// Expedición de logs para control de incidencias.
 		// Comentarios en codigo y presentacion.
@@ -34,12 +30,12 @@ public class Test {
 		do {
 
 			System.out.println(
-					"Que desea hacer?\n1)Listar clientes\n2)Registrar Clientes \n3)Buscar\n4)Desocupar\n5)Salir");
+					"Que desea hacer?\n1)Listar clientes\n2)Registrar Clientes \n3)Buscar\n4)Desocupar\n5)Listar Habitaciones disponibles\n6)Salir");
 			op = Integer.parseInt(sc.nextLine());
 
 			menu(lc, gh, op);
 
-		} while (op != 5);
+		} while (op != 6);
 
 		sc.close();
 	}
@@ -68,6 +64,8 @@ public class Test {
 			System.out.println("Ingrese su celular ");
 			String celular = sc.nextLine();
 
+			System.out.println(
+					"\nHabitaciones individuales: 1-5\nHabitaciones dobles 6-10\nHabitaciones Queen 11-15\nHabitaciones king 16-20\nHabitaciones suite 21-25\n");
 			System.out.println("Elija tipo de habitacion: \n1)Individual\n2)Doble\n3)Queen\n4)King\n5)Suite");
 			int tipo = Integer.parseInt(sc.nextLine());
 
@@ -115,8 +113,7 @@ public class Test {
 					System.out.println("Esta habitacion no esta designada para el tipo " + t);
 
 				} else {
-
-					gh.ocupar(num);
+					
 					check = false;
 					check2 = true;
 				}
@@ -182,7 +179,20 @@ public class Test {
 			int num2 = Integer.parseInt(sc.nextLine());
 			gh.desocupar(num2);
 			break;
+
 		case 5:
+
+			for (int i = 1; i <= 25; i++) {
+
+				if (!gh.disponibilidad(i)) {
+
+					System.out.println("Habitacion " + i + " disponible");
+				}
+			}
+
+			break;
+
+		case 6:
 			System.out.println("Has salido del programa.");
 			break;
 
